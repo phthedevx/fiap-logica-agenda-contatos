@@ -37,7 +37,25 @@ public class Agenda {
                 .orElse(null);
     }
 
-    public void editarContato(Contato contato){
+    public void editarContato(String nomePesquisado) {
+        Contato contato = pesquisarContato(nomePesquisado);
 
+        if (contato != null) {
+            System.out.println("Digite novo nome");
+            String novoNome = s.nextLine();
+
+            System.out.println("Digite novo numero");
+            String novoNumero = s.nextLine();
+
+            System.out.println("Digite novo email");
+            String novoEmail = s.nextLine();
+
+            contato.setNome(novoNome);
+            contato.setNumero(novoNumero);
+            contato.setEmail(novoEmail);
+
+        }else {
+            System.out.println("Contato não encontrado!");
+        }
     }
 }
